@@ -33,6 +33,14 @@ public class ChampionController {
         return "random-spell";
     }
 
+    @GetMapping("/random-lore")
+    public String getRandomlore(Model model) {
+        Map<String, String> champion = championService.getRandomChampion();
+        model.addAttribute("championName", champion.get("name")); // Se usará para la validación
+        model.addAttribute("loreText", champion.get("lore"));
+        return "random-lore";
+    }
+
 
     @GetMapping("/check-answer")
     public String checkAnswer(@RequestParam String guess, @RequestParam String correctName, Model model) {

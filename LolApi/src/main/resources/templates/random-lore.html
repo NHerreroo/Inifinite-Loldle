@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el Campeón | League of Legends</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts - Beaufort for LoL -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link href="/Page.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container game-container">
+    <div class="text-center">
+        <h1 class="lol-title">Adivina el Campeón</h1>
+
+        <div class="champion-image-container">
+            <h3 th:text="${loreText}!|"></h3>
+        </div>
+
+        <div class="guess-form">
+            <form id="guessForm" class="mb-3">
+                <input type="hidden" id="correctName" th:value="${championName}">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="guess" name="guess" placeholder="Escribe el nombre del campeón" required>
+                </div>
+                <button type="submit" class="btn btn-lol-primary">Comprobar</button>
+            </form>
+        </div>
+
+        <a href="/random-lore" class="btn btn-lol-secondary">
+            Otro campeón
+        </a>
+
+        <!-- Score display (optional) -->
+        <div class="score-display mt-4" id="scoreDisplay">
+            Puntuación: <span id="score">0</span>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">¡Correcto!</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="success-icon">🏆</div>
+                <p>¡Has acertado! El campeón es <span class="champion-name" id="correctChampionName"></span></p>
+                <p>¿Quieres intentar con otro campeón?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lol-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-lol-primary" id="nextChampionBtn">Siguiente campeón</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">¡Incorrecto!</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="error-icon">❌</div>
+                <p>Tu respuesta no es correcta. ¡Inténtalo de nuevo!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lol-primary" data-bs-dismiss="modal">Intentar otra vez</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Initialize score from localStorage or set to 0
+    let score = parseInt(localStorage.getItem('championScore') || 0);
+    document.getElementById('score').textContent = score;
+
+    // Get DOM elements
+    const guessForm = document.getElementById('guessForm');
+    const correctNameInput = document.getElementById('correctName');
+    const guessInput = document.getElementById('guess');
+    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    const correctChampionNameSpan = document.getElementById('correctChampionName');
+    const nextChampionBtn = document.getElementById('nextChampionBtn');
+
+    // Handle form submission
+    guessForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const correctName = correctNameInput.value.trim().toLowerCase();
+        const userGuess = guessInput.value.trim().toLowerCase();
+
+        if (userGuess === correctName) {
+            // Correct guess
+            correctChampionNameSpan.textContent = correctName;
+
+            // Update score
+            score += 10;
+            localStorage.setItem('championScore', score);
+            document.getElementById('score').textContent = score;
+
+            // Show success modal
+            successModal.show();
+        } else {
+            // Incorrect guess
+            errorModal.show();
+        }
+    });
+
+    // Handle "Next Champion" button click
+    nextChampionBtn.addEventListener('click', function() {
+        window.location.href = '/random-lore';
+    });
+
+    // Clear input when error modal is closed
+    document.getElementById('errorModal').addEventListener('hidden.bs.modal', function () {
+        guessInput.value = '';
+        guessInput.focus();
+    });
+</script>
+</body>
+</html>

@@ -28,6 +28,7 @@ public class ChampionService {
 		String championName = championKeys.get(random.nextInt(championKeys.size()));
 
 		String championDetailsUrl = "https://ddragon.leagueoflegends.com/cdn/" + version + "/data/es_ES/champion/" + championName + ".json";
+		System.out.println(championDetailsUrl);
 		Map<String, Object> championDetailsResponse = restTemplate.getForObject(championDetailsUrl, Map.class);
 		Map<String, Object> championData = (Map<String, Object>) championDetailsResponse.get("data");
 		Map<String, Object> championInfo = (Map<String, Object>) championData.get(championName);
@@ -35,11 +36,17 @@ public class ChampionService {
 		List<Map<String, Object>> skins = (List<Map<String, Object>>) championInfo.get("skins");
 		List<Map<String, Object>> spells = (List<Map<String, Object>>) championInfo.get("spells");
 
+		String lore = (String) championInfo.get("blurb");
+
 		Map<String, Object> randomSpell = spells.get(random.nextInt(spells.size()));
 		String spellName = (String) randomSpell.get("name");
 		String spellImage = (String) ((Map<String, Object>) randomSpell.get("image")).get("full");
 
+
+
 		String spellImageUrl = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/spell/" + spellImage; //imagen del spell
+
+
 
 		String splashArtUrl = null;
 		String skinName = null;
@@ -58,7 +65,8 @@ public class ChampionService {
 				"skinName", skinName,
 				"splashArt", splashArtUrl,
 				"spellName", spellName,
-				"spellImage", spellImageUrl
+				"spellImage", spellImageUrl,
+				"lore", lore
 		);
 	}
 }
