@@ -37,6 +37,7 @@ public class ChampionService {
 		List<Map<String, Object>> spells = (List<Map<String, Object>>) championInfo.get("spells");
 
 		String lore = (String) championInfo.get("blurb");
+		String loremodified = lore.replace(championName, "XXX");
 
 		Map<String, Object> randomSpell = spells.get(random.nextInt(spells.size()));
 		String spellName = (String) randomSpell.get("name");
@@ -45,7 +46,6 @@ public class ChampionService {
 
 
 		String spellImageUrl = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/spell/" + spellImage; //imagen del spell
-
 
 
 		String splashArtUrl = null;
@@ -66,7 +66,7 @@ public class ChampionService {
 				"splashArt", splashArtUrl,
 				"spellName", spellName,
 				"spellImage", spellImageUrl,
-				"lore", lore
+				"lore", loremodified
 		);
 	}
 }

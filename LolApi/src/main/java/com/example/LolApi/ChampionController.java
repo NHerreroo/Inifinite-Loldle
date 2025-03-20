@@ -37,7 +37,7 @@ public class ChampionController {
     public String getRandomlore(Model model) {
         Map<String, String> champion = championService.getRandomChampion();
         model.addAttribute("championName", champion.get("name")); // Se usará para la validación
-        model.addAttribute("loreText", champion.get("lore"));
+        model.addAttribute("lore", champion.get("lore"));
         return "random-lore";
     }
 

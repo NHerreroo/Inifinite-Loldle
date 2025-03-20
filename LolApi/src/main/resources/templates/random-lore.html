@@ -20,7 +20,7 @@
         <h1 class="lol-title">Adivina el Campeón</h1>
 
         <div class="champion-image-container">
-            <h3 th:text="${loreText}!|"></h3>
+            <p th:text="${lore ?: 'Lore no disponible'}"></p>
         </div>
 
         <div class="guess-form">
