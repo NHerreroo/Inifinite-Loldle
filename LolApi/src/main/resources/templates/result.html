@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        .correct {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1 th:class="${isCorrect} ? 'correct' : 'wrong'"
+    th:text="${isCorrect} ? '¡Correcto!' : 'Incorrecto'">
+</h1>
+
+<h2 th:if="!${isCorrect}">El campeón era: <span th:text="${correctName}"></span></h2>
+
+<a href="/random-champion">
+    <button>Intentar de nuevo</button>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivina el Campeón</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            width: 600px;
+            border-radius: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Adivina el Campeón</h1>
+<img th:src="${splashArt}" alt="Imagen del campeón">
+
+<form action="/check-answer" method="get">
+    <input type="hidden" name="correctName" th:value="${championName}">
+    <input type="text" name="guess" placeholder="Escribe el nombre del campeón" required>
+    <button type="submit">Comprobar</button>
+</form>
+
+<br><br>
+<a href="/random-champion">
+    <button>Otro campeón</button>
+</a>
+
+</body>
+</html>
