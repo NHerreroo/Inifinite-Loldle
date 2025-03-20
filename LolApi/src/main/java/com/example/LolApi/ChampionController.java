@@ -25,6 +25,15 @@ public class ChampionController {
         return "random-champion";
     }
 
+    @GetMapping("/random-spell")
+    public String getRandomSpell(Model model) {
+        Map<String, String> champion = championService.getRandomChampion();
+        model.addAttribute("championName", champion.get("name")); // Se usará para la validación
+        model.addAttribute("spellImage", champion.get("spellImage"));
+        return "random-spell";
+    }
+
+
     @GetMapping("/check-answer")
     public String checkAnswer(@RequestParam String guess, @RequestParam String correctName, Model model) {
         boolean isCorrect = guess.equalsIgnoreCase(correctName);

@@ -20,7 +20,7 @@
         <h1 class="lol-title">Adivina el Campeón</h1>
 
         <div class="champion-image-container">
-            <img th:src="${splashArt}" alt="Imagen del campeón" class="champion-image img-fluid">
+            <img th:src="${spellImage}" alt="Imagen del campeón" class="champion-image img-fluid">
         </div>
 
         <div class="guess-form">
@@ -33,7 +33,7 @@
             </form>
         </div>
 
-        <a href="/random-champion" class="btn btn-lol-secondary">
+        <a href="/random-spell" class="btn btn-lol-secondary">
             Otro campeón
         </a>
 
@@ -127,7 +127,7 @@
 
     // Handle "Next Champion" button click
     nextChampionBtn.addEventListener('click', function() {
-        window.location.href = '/random-champion';
+        window.location.href = '/random-spell';
     });
 
     // Clear input when error modal is closed

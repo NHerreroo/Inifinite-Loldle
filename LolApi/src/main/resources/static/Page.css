@@ -116,3 +116,46 @@
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.6);
         }
+
+
+                /* Additional styles for the modal */
+                .modal-content {
+                    background-color: #0a1428;
+                    border: 2px solid #c8aa6e;
+                    color: white;
+                }
+
+                .modal-header {
+                    border-bottom: 1px solid #c8aa6e;
+                }
+
+                .modal-footer {
+                    border-top: 1px solid #c8aa6e;
+                }
+
+                .success-icon {
+                    font-size: 4rem;
+                    color: #0ac8b9;
+                    margin-bottom: 1rem;
+                }
+
+                .error-icon {
+                    font-size: 4rem;
+                    color: #e84057;
+                    margin-bottom: 1rem;
+                }
+
+                .champion-name {
+                    color: #c8aa6e;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                }
+
+                .score-display {
+                    background-color: rgba(10, 20, 40, 0.7);
+                    border-left: 3px solid #0ac8b9;
+                    padding: 0.5rem 1rem;
+                    border-radius: 4px;
+                    display: inline-block;
+                    margin-bottom: 1rem;
+                }

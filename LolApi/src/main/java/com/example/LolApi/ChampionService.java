@@ -33,6 +33,13 @@ public class ChampionService {
 		Map<String, Object> championInfo = (Map<String, Object>) championData.get(championName);
 
 		List<Map<String, Object>> skins = (List<Map<String, Object>>) championInfo.get("skins");
+		List<Map<String, Object>> spells = (List<Map<String, Object>>) championInfo.get("spells");
+
+		Map<String, Object> randomSpell = spells.get(random.nextInt(spells.size()));
+		String spellName = (String) randomSpell.get("name");
+		String spellImage = (String) ((Map<String, Object>) randomSpell.get("image")).get("full");
+
+		String spellImageUrl = "https://ddragon.leagueoflegends.com/cdn/" + version + "/img/spell/" + spellImage; //imagen del spell
 
 		String splashArtUrl = null;
 		String skinName = null;
@@ -49,7 +56,9 @@ public class ChampionService {
 		return Map.of(
 				"name", championName,
 				"skinName", skinName,
-				"splashArt", splashArtUrl
+				"splashArt", splashArtUrl,
+				"spellName", spellName,
+				"spellImage", spellImageUrl
 		);
 	}
 }
