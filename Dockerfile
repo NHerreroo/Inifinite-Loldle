@@ -3,7 +3,7 @@ FROM ubuntu:latest AS build
 
 # Instalamos las dependencias necesarias
 RUN apt-get update && apt-get install -y \
-    openjdk-24-jdk \
+    openjdk-21-jdk \
     maven \
     && rm -rf /var/lib/apt/lists/*
 
@@ -17,7 +17,7 @@ WORKDIR /app
 RUN mvn clean package -DskipTests
 
 # Usamos una imagen base más ligera para la fase de ejecución
-FROM openjdk:24-jdk-slim
+FROM openjdk:21-jdk-slim
 
 # Exponemos el puerto en el que correrá la aplicación
 EXPOSE 8080
