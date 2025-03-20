@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiamos el código fuente del proyecto al contenedor
-COPY . /app
+COPY LolApi /app
 
 # Establecemos el directorio de trabajo
 WORKDIR /app
