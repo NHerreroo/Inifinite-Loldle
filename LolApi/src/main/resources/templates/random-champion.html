@@ -1,52 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Adivina el Campeón</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        img {
-            width: 600px;
-            border-radius: 10px;
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el Campeón | League of Legends</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts - Beaufort for LoL -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link href="/Page.css" rel="stylesheet">
 </head>
 <body>
+<div class="container game-container">
+    <div class="text-center">
+        <h1 class="lol-title">Adivina el Campeón</h1>
 
-<h1>Adivina el Campeón</h1>
-<img th:src="${splashArt}" alt="Imagen del campeón">
+        <div class="champion-image-container">
+            <img th:src="${splashArt}" alt="Imagen del campeón" class="champion-image img-fluid">
+        </div>
 
-<form action="/check-answer" method="get">
-    <input type="hidden" name="correctName" th:value="${championName}">
-    <input type="text" name="guess" placeholder="Escribe el nombre del campeón" required>
-    <button type="submit">Comprobar</button>
-</form>
+        <div class="guess-form">
+            <form action="/check-answer" method="get" class="mb-3">
+                <input type="hidden" name="correctName" th:value="${championName}">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="guess" placeholder="Escribe el nombre del campeón" required>
+                </div>
+                <button type="submit" class="btn btn-lol-primary">Comprobar</button>
+            </form>
+        </div>
 
-<br><br>
-<a href="/random-champion">
-    <button>Otro campeón</button>
-</a>
+        <a href="/random-champion" class="btn btn-lol-secondary">
+            Otro campeón
+        </a>
 
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

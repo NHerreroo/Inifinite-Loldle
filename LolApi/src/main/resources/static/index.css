@@ -1,0 +1,263 @@
+/* League of Legends Theme Variables */
+:root {
+    --lol-gold: #c8aa6e;
+    --lol-blue: #0ac8b9;
+    --lol-dark: #010a13;
+    --lol-dark-blue: #0a1428;
+    --lol-light-blue: #cdfafa;
+    --lol-red: #e84057;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Sora', sans-serif;
+    background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ryze_7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    position: relative;
+    min-height: 100vh;
+}
+
+.lol-overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 10, 19, 0.85);
+    z-index: -1;
+}
+
+/* Container Styles */
+.home-container {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Logo and Title */
+.lol-logo {
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.lol-title {
+    font-weight: 700;
+    color: var(--lol-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(200, 170, 110, 0.5);
+    font-size: 3rem;
+}
+
+/* Game Description */
+.game-description {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1.2rem;
+    background-color: rgba(10, 20, 40, 0.7);
+    padding: 1.5rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--lol-blue);
+}
+
+/* Game Modes Section */
+.game-modes-title {
+    color: var(--lol-light-blue);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.game-modes {
+    justify-content: center;
+}
+
+.game-mode-card {
+    background-color: rgba(10, 20, 40, 0.8);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--lol-blue);
+}
+
+.game-mode-card:hover:not(.disabled) {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(10, 200, 185, 0.3);
+}
+
+.game-mode-card.disabled {
+    opacity: 0.7;
+    border: 1px solid rgba(200, 170, 110, 0.3);
+}
+
+.game-mode-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.game-mode-card h3 {
+    color: var(--lol-gold);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.game-mode-card p {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    min-height: 60px;
+}
+
+/* Buttons */
+.btn-lol-primary {
+    background-color: var(--lol-blue);
+    border: none;
+    color: var(--lol-dark);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-lol-primary:hover {
+    background-color: var(--lol-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(200, 170, 110, 0.4);
+}
+
+.btn-lol-secondary {
+    background-color: transparent;
+    border: 2px solid var(--lol-gold);
+    color: var(--lol-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-lol-secondary:hover:not(.disabled) {
+    background-color: var(--lol-gold);
+    color: var(--lol-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(200, 170, 110, 0.4);
+}
+
+.btn-lol-secondary.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(1, 10, 19, 0.5);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .lol-title {
+        font-size: 2.2rem;
+    }
+
+    .game-mode-card p {
+        min-height: auto;
+    }
+}
+
+/* Game Page Specific Styles */
+.game-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.champion-image {
+    border: 3px solid var(--lol-gold);
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(200, 170, 110, 0.3);
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.guess-form {
+    background-color: rgba(10, 20, 40, 0.7);
+    padding: 2rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--lol-blue);
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    background-color: var(--lol-dark);
+    border: 1px solid var(--lol-blue);
+    color: white;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    background-color: var(--lol-dark-blue);
+    color: white;
+    border-color: var(--lol-gold);
+    box-shadow: 0 0 0 0.25rem rgba(200, 170, 110, 0.25);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: #0a1428;
+    border: 2px solid #c8aa6e;
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid #c8aa6e;
+}
+
+.modal-footer {
+    border-top: 1px solid #c8aa6e;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #0ac8b9;
+    margin-bottom: 1rem;
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: #e84057;
+    margin-bottom: 1rem;
+}
+
+.champion-name {
+    color: #c8aa6e;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.score-display {
+    background-color: rgba(10, 20, 40, 0.7);
+    border-left: 3px solid #0ac8b9;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
