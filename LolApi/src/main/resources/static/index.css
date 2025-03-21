@@ -261,3 +261,93 @@ body {
     display: inline-block;
     margin-bottom: 1rem;
 }
+
+.btn-itch {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ad5a61; /* Color de itch.io */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-itch i {
+      margin-right: 8px;
+    }
+
+    .btn-itch:hover {
+      background-color: #883f45;
+    }
+
+
+.btn-inst {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #a34086; /* Color de itch.io */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-inst i {
+      margin-right: 8px;
+    }
+
+    .btn-inst:hover {
+      background-color: #812f69;
+    }
+
+
+
+    .btn-twt {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #656ec2; /* Color de itch.io */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .btn-twt i {
+        margin-right: 8px;
+      }
+  
+      .btn-twt:hover {
+        background-color: #464c8a;
+      }
+
+    
+    
+  .btn-git {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #161616; /* Color de itch.io */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .btn-git i {
+        margin-right: 8px;
+      }
+  
+      .btn-git:hover {
+        background-color: #000000;
+      }
+
+.links{
+    color: white;
+    text-decoration: none; /* Elimina el subrayado */
+}
